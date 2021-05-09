@@ -13,6 +13,11 @@ export default {
   components: {
     HelloWorld,
   },
+  data() {
+    return {
+      x: 'use',
+    };
+  },
 };
 </script>
 
