@@ -39,9 +39,14 @@ export default {
   methods: {
     ...mapActions({createRestaurant: 'restaurants/create'}),
     handleSave() {
-      this.createRestaurant(this.name).then(() => {
-        this.name = '';
-      });
+      if (this.name) {
+        this.validationError = false;
+        this.createRestaurant(this.name).then(() => {
+          this.name = '';
+        });
+      } else {
+        this.validationError = true;
+      }
     },
   },
 };
