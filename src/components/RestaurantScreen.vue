@@ -1,17 +1,10 @@
 <template>
-  <div>
-    <transition
-      mode="out-in"
-      @before-enter="beforeEnter"
-      @enter="enter"
-      @before-leave="beforeLeave"
-      @leave="leave"
-      :css="false"
-    >
-      <h1>Restaurants</h1>
-    </transition>
-    <RestaurantList />
-  </div>
+  <v-card>
+    <v-card-title>Restaurants</v-card-title>
+    <v-card-text>
+      <RestaurantList />
+    </v-card-text>
+  </v-card>
 </template>
 
 <script>
