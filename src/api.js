@@ -9,7 +9,7 @@ const api = {
     return client.get('/restaurants').then(response => response.data);
   },
   createRestaurant(name) {
-    return client.post('/restaurants', {name});
+    return client.post('/restaurants', {name}).then(response => response.data);
   },
 };
 

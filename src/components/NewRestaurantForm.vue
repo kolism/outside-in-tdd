@@ -1,5 +1,12 @@
 <template>
   <form @submit.prevent="handleSave">
+    <v-alert
+      type="error"
+      data-testid="new-restaurant-name-error"
+      v-if="validationError"
+    >
+      Name is required.
+    </v-alert>
     <v-text-field
       placeholder="Add Restaurant"
       filled
@@ -26,12 +33,15 @@ export default {
   data() {
     return {
       name: '',
+      validationError: false,
     };
   },
   methods: {
     ...mapActions({createRestaurant: 'restaurants/create'}),
     handleSave() {
-      this.createRestaurant(this.name);
+      this.createRestaurant(this.name).then(() => {
+        this.name = '';
+      });
     },
   },
 };
